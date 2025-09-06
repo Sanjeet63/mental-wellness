@@ -50,7 +50,7 @@ const Resources = () => {
               <iframe
                 width="100%"
                 height="180"
-                src="https://www.youtube.com/embed/d0ZKqj7a3h8" // Example: Mental Health Exercises
+                src="https://www.youtube.com/embed/ztTexqGQ0VI" // Example: Mental Health Exercises
                 title="Medical Wellness Tips"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
