@@ -14,45 +14,52 @@ const Resources = () => {
             Helpful YouTube Videos
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+            {/* Video 1 */}
             <div className="bg-gray-100 p-3 rounded-lg">
               <iframe
                 width="100%"
                 height="180"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Sample Video 1"
+                src="https://www.youtube.com/embed/QgmmTEC3BgA"
+                title="Mental Health Awareness"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="rounded"
               ></iframe>
-              <p className="mt-2 text-sm text-gray-600">Mental Health Tips</p>
+              <p className="mt-2 text-sm text-gray-600">Mental Health Awareness</p>
             </div>
+
+            {/* Video 2 */}
             <div className="bg-gray-100 p-3 rounded-lg">
               <iframe
                 width="100%"
                 height="180"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Sample Video 2"
+                src="https://www.youtube.com/embed/8ln4XfRi6uw"
+                title="Stress Management"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="rounded"
               ></iframe>
-              <p className="mt-2 text-sm text-gray-600">Stress Management</p>
+              <p className="mt-2 text-sm text-gray-600">Stress Management Techniques</p>
             </div>
+
+            {/* Video 3 - Medical/Wellness */}
             <div className="bg-gray-100 p-3 rounded-lg">
               <iframe
                 width="100%"
                 height="180"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Sample Video 3"
+                src="https://www.youtube.com/embed/d0ZKqj7a3h8" // Example: Mental Health Exercises
+                title="Medical Wellness Tips"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="rounded"
               ></iframe>
-              <p className="mt-2 text-sm text-gray-600">Wellness Routines</p>
+              <p className="mt-2 text-sm text-gray-600">Daily Mental Wellness Exercises</p>
             </div>
+
           </div>
         </section>
       </div>

@@ -3,6 +3,7 @@ import ChatBox from "./components/Chatbot";
 import Login from "./components/Login";
 import Resources from "./components/Resources";
 import Support from "./components/Support";
+import ConsultationBooking from "./components/ConsultationBooking";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,6 +44,12 @@ function App() {
           >
             🆘 Support
           </button>
+          <button
+            onClick={() => { setCurrentView('consultation'); setSidebarOpen(false); }}
+            className={`text-left hover:bg-purple-600 p-2 rounded ${currentView === 'consultation' ? 'bg-purple-600' : ''}`}
+          >
+            📅 Book Consultation
+          </button>
           <button className="text-left hover:bg-purple-600 p-2 rounded">👤 {user.name}</button>
           <button
             onClick={handleLogout}
@@ -67,13 +74,17 @@ function App() {
               ☰
             </button>
             <h2 className="text-xl font-semibold text-purple-700">
-              {currentView === 'chat' ? 'Wellness Assistant 🤖' : currentView === 'resources' ? 'Resources' : 'Support'}
+              {currentView === 'chat' ? 'Wellness Assistant 🤖' :
+               currentView === 'resources' ? 'Resources' :
+               currentView === 'support' ? 'Support' : 'Book Consultation'}
             </h2>
           </div>
           <p className="text-sm text-gray-600">Welcome, {user.name}</p>
         </header>
         <main className="flex-1 p-4 bg-gray-50 overflow-y-auto">
-          {currentView === 'chat' ? <ChatBox /> : currentView === 'resources' ? <Resources /> : <Support />}
+          {currentView === 'chat' ? <ChatBox /> :
+           currentView === 'resources' ? <Resources /> :
+           currentView === 'support' ? <Support /> : <ConsultationBooking />}
         </main>
       </div>
     </div>
