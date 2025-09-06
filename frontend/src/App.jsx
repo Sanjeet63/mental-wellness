@@ -4,21 +4,60 @@ import Login from "./components/Login";
 import Resources from "./components/Resources";
 import Support from "./components/Support";
 import ConsultationBooking from "./components/ConsultationBooking";
+import AdminDashboard from "./components/AdminDashboard";
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   const [user, setUser] = useState(null);
   const [currentView, setCurrentView] = useState('chat');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) setUser(JSON.parse(storedUser));
+
+    const storedAdmin = localStorage.getItem("admin");
+    if (storedAdmin === "true") setIsAdmin(true);
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
   };
+
+  // Show admin login modal
+  if (showAdminLogin) {
+    return (
+      <AdminLogin
+        onLogin={() => {
+          setIsAdmin(true);
+          setShowAdminLogin(false);
+          setCurrentView('admin');
+        }}
+      />
+    );
+  }
+
+  // Show admin dashboard if admin is logged in
+  if (isAdmin && currentView === 'admin') {
+    return (
+      <div className="h-screen w-screen">
+        <AdminDashboard />
+        <button
+          onClick={() => {
+            setIsAdmin(false);
+            localStorage.removeItem("admin");
+            setCurrentView('chat');
+          }}
+          className="fixed top-4 right-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+        >
+          Logout Admin
+        </button>
+      </div>
+    );
+  }
 
   return user ? (
     <div className="flex h-screen w-screen bg-gray-100">
@@ -51,6 +90,12 @@ function App() {
             📅 Book Consultation
           </button>
           <button className="text-left hover:bg-purple-600 p-2 rounded">👤 {user.name}</button>
+          <button
+            onClick={() => setShowAdminLogin(true)}
+            className="text-left hover:bg-purple-600 p-2 rounded"
+          >
+            🛡️ Admin
+          </button>
           <button
             onClick={handleLogout}
             className="text-left hover:bg-purple-600 p-2 rounded"

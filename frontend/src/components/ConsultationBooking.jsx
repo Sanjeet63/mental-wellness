@@ -16,19 +16,35 @@ const ConsultationBooking = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission, e.g., send to backend
-    alert("Consultation booking request submitted! We will contact you soon.");
-    setForm({
-      name: "",
-      email: "",
-      phone: "",
-      consultationType: "",
-      preferredDate: "",
-      preferredTime: "",
-      message: ""
-    });
+    try {
+      const response = await fetch('https://mental-wellness-thzb.onrender.com/api/consultations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form)
+      });
+
+      if (response.ok) {
+        alert("Consultation booking request submitted! We will contact you soon.");
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          consultationType: "",
+          preferredDate: "",
+          preferredTime: "",
+          message: ""
+        });
+      } else {
+        alert("Failed to submit consultation request. Please try again.");
+      }
+    } catch (error) {
+      console.error('Error submitting consultation:', error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (

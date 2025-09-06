@@ -100,7 +100,7 @@ const Support = () => {
                 Follow on Instagram
               </a>
               <a
-                href="https://discord.gg/yourdiscord"
+                href="https://discord.gg/c4eXp2DQ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center p-3 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition duration-300"
