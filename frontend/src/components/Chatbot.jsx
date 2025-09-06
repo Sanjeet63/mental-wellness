@@ -21,7 +21,7 @@ const ChatBox = () => {
     setIsLoading(true); // ✅ disable input & button
 
     try {
-      const res = await axios.post("http://localhost:5000/api/chat", {
+      const res = await axios.post("https://mental-wellness-thzb.onrender.com/api/chat", {
         message: newMessage.text,
       });
 
